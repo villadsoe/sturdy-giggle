@@ -204,14 +204,14 @@ main{display:block;}
   position:relative;
   max-width:1400px;margin:44px auto 0;
   overflow:hidden;
-  perspective:1000px;
+  perspective:1400px;
   cursor:pointer;
 }
 .ring-stage--artists{
-  height:clamp(420px, 48vw, 560px);
+  height:clamp(440px, 50vw, 610px);
 }
 .ring-stage--artworks{
-  height:clamp(280px, 32vw, 400px);
+  height:clamp(300px, 34vw, 430px);
   margin-top:0;
 }
 .ring{
