@@ -22,6 +22,6 @@ python3 -m http.server 8000
 
 ## Design system
 
-- Fonts (loaded from Google Fonts in `index.html`'s `<head>`): **Oswald** for nav/labels/uppercase UI text, **Fraunces** for headings and artist/artwork names, **IBM Plex Mono** for prices, catalog numbers, and other data-like text.
+- Fonts: **IBM Plex Mono** (loaded from Google Fonts in `index.html`'s `<head>`) is the site's only typeface, used everywhere — headings, nav, body copy, prices/catalog numbers. Don't reintroduce a second display or body face; set weight/size/letter-spacing/uppercase to create hierarchy instead.
 - `.plate` is the placeholder-artwork convention used everywhere a real photo isn't available yet: a textured panel with corner "registration marks" (CSS custom property `--reg`, an inline SVG cross) and centered artist initials (`.plate-initials`). Replace a `.plate` with a real `<img>` once actual artwork/artist photography exists — don't leave the placeholder in production content.
 - Nav links carry a `data-index` attribute (e.g. `data-index="01"`) rendered via `::before { content: attr(data-index) }` on hover — this encodes the section's real position in the page, so keep it in sync with actual section order.
