@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UngeKunstnere — Opdag ny kunst</title>
+<meta name="description" content="UngeKunstnere er et kurateret online galleri, hvor unge kunstnere præsenterer sig selv og sælger deres originale værker.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header" data-header>
+  <div class="header-inner">
+    <a href="#top" class="logo">UngeKunstnere</a>
+    <nav class="main-nav">
+      <a href="#kunstnere" data-index="01">Kunstnere</a>
+      <a href="#kunstvaerker" data-index="02">Kunstværker</a>
+      <a href="#om-os" data-index="03">Om os</a>
+      <a href="#saelg-kunst" data-index="04">Sælg kunst</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn label-desktop" data-search-open type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Søg</span>
+      </button>
+      <a href="#" class="icon-btn label-desktop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <span>Login</span>
+      </a>
+      <a href="#" class="icon-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 4h2l2.4 12.4a2 2 0 002 1.6h8.2a2 2 0 002-1.6L21 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+        <span class="cart-count" data-cart-count>0</span>
+      </a>
+      <button class="hamburger" aria-label="Åbn menu" aria-expanded="false" data-hamburger>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" data-mobile-nav>
+  <a href="#kunstnere">01 · Kunstnere</a>
+  <a href="#kunstvaerker">02 · Kunstværker</a>
+  <a href="#om-os">03 · Om os</a>
+  <a href="#saelg-kunst">04 · Sælg kunst</a>
+</div>
+
+<div class="search-overlay" data-search-overlay>
+  <button class="search-close" type="button" data-search-close>Luk ✕</button>
+  <form onsubmit="return false">
+    <input type="text" placeholder="Søg efter kunstnere eller kunstværker …">
+  </form>
+</div>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text fade-in">
+        <span class="eyebrow">UngeKunstnere — online galleri</span>
+        <h1>Opdag ny kunst</h1>
+        <p>Originale værker fra kunstnere tidligt i deres karriere — udvalgt i et lille, kurateret rum uden algoritmer.</p>
+        <div class="hero-cta">
+          <a href="#kunstnere" class="btn btn-primary">Udforsk kunstnere</a>
+        </div>
+      </div>
+      <div class="hero-image plate fade-in" style="position:relative;">
+        <div class="stamp mono">UDSTILLING 04 — 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kunstnere">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">01 — Kunstnere</span>
+        <h2>Mød kunstnerne</h2>
+        <p>Fire stemmer i årets udstilling — hver med deres eget materiale og sprog.</p>
+      </div>
+
+      <div class="artist-grid">
+        <a href="#" class="artist-card fade-in">
+          <div class="plate"><span class="plate-initials">PC</span></div>
+          <div>
+            <span class="artist-index mono">A01</span>
+            <div class="artist-name">Philip Curtz</div>
+            <div class="artist-genre">Maleri, abstrakt ekspressionisme</div>
+          </div>
+        </a>
+        <a href="#" class="artist-card fade-in">
+          <div class="plate"><span class="plate-initials">B</span></div>
+          <div>
+            <span class="artist-index mono">A02</span>
+            <div class="artist-name">Bachmann</div>
+            <div class="artist-genre">Skulptur, beton og fundne materialer</div>
+          </div>
+        </a>
+        <a href="#" class="artist-card fade-in">
+          <div class="plate"><span class="plate-initials">LE</span></div>
+          <div>
+            <span class="artist-index mono">A03</span>
+            <div class="artist-name">Louie Elkjær</div>
+            <div class="artist-genre">Fotografi, dokumentarisk</div>
+          </div>
+        </a>
+        <a href="#" class="artist-card fade-in">
+          <div class="plate"><span class="plate-initials">MH</span></div>
+          <div>
+            <span class="artist-index mono">A04</span>
+            <div class="artist-name">Marcus Højgaard</div>
+            <div class="artist-genre">Maleri, figurativ og ekspressiv</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="grid-cta">
+        <a href="#" class="text-link">Se alle kunstnere</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-bg-alt" id="kunstvaerker">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">02 — Udvalgt</span>
+        <h2>Kunstværker</h2>
+        <p>Et udsnit af værker fra galleriets kunstnere, opdateret løbende.</p>
+      </div>
+
+      <div class="artwork-grid">
+        <a href="#" class="artwork-card tall fade-in">
+          <div class="plate"><span class="plate-initials">MH</span></div>
+          <div class="artwork-meta">
+            <span class="artwork-title">Uden titel (Marts)</span>
+            <span class="artwork-price mono">12.400 kr</span>
+          </div>
+        </a>
+        <a href="#" class="artwork-card wide fade-in">
+          <div class="plate"><span class="plate-initials">PC</span></div>
+          <div class="artwork-meta">
+            <span class="artwork-title">Efter regnen</span>
+            <span class="artwork-price mono">8.900 kr</span>
+          </div>
+        </a>
+        <a href="#" class="artwork-card square fade-in">
+          <div class="plate"><span class="plate-initials">B</span></div>
+          <div class="artwork-meta">
+            <span class="artwork-title">Betonhud III</span>
+            <span class="artwork-price mono">15.600 kr</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="grid-cta">
+        <a href="#" class="text-link">Se alle kunstværker</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="saelg-kunst">
+    <div class="container about-grid">
+      <div class="plate fade-in"><span class="plate-initials">→</span></div>
+      <div class="about-copy fade-in">
+        <span class="eyebrow">04 — Sælg kunst</span>
+        <h2>Bliv en del af galleriet</h2>
+        <p>Vi optager et lille antal nye kunstnere hvert kvartal. Ingen uendelig scroll, ingen algoritmer — bare et kurateret rum til værker, der fortjener at blive set og solgt til den rette pris.</p>
+        <a href="#" class="btn">Opret kunstnerprofil</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="om-os">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <div class="footer-logo">UngeKunstnere</div>
+        <p>Et kurateret rum for nye stemmer i dansk kunst — bygget til de kunstnere, der endnu ikke har fået deres første udstilling.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Udforsk</h4>
+        <ul>
+          <li><a href="#kunstnere">Kunstnere</a></li>
+          <li><a href="#kunstvaerker">Kunstværker</a></li>
+          <li><a href="#om-os">Om os</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kunstplatform</h4>
+        <ul>
+          <li><a href="#saelg-kunst">Sælg kunst</a></li>
+          <li><a href="#">Kurv</a></li>
+          <li><a href="#">Hjælp</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h4>Nyhedsbrev</h4>
+        <form data-demo-form="Tak for din tilmelding.">
+          <input type="email" placeholder="Din e-mail" required>
+          <button type="submit" class="text-link">Tilmeld</button>
+        </form>
+        <div class="form-msg" data-form-msg></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 UngeKunstnere. Alle rettigheder forbeholdes.</span>
+      <span>Baseret i København.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
