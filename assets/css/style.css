@@ -1,40 +1,40 @@
 :root{
-  --paper:#E7E2D6;
-  --paper-alt:#DAD3C1;
-  --paper-deep:#CBC1A8;
-  --ink:#17140F;
-  --muted:#6E6656;
-  --pigment:#8B2E1C;
-  --pigment-ink:#F7ECE4;
-  --line: rgba(23,20,15,.16);
-  --line-strong: rgba(23,20,15,.32);
-  --reg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><path d='M8 0V16M0 8H16' stroke='%2317140F' stroke-width='0.75' opacity='0.55'/></svg>");
+  --paper:#FFFFFF;
+  --paper-alt:#F6F6F4;
+  --paper-deep:#E9E9E6;
+  --ink:#111111;
+  --muted:#6E6E6B;
+  --pigment:#111111;
+  --pigment-ink:#FFFFFF;
+  --line: rgba(17,17,17,.12);
+  --line-strong: rgba(17,17,17,.28);
+  --reg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><path d='M8 0V16M0 8H16' stroke='%23111111' stroke-width='0.75' opacity='0.55'/></svg>");
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#131110;
-    --paper-alt:#1C1916;
-    --paper-deep:#262119;
-    --ink:#ECE6D8;
-    --muted:#A79C87;
-    --pigment:#D2653F;
-    --pigment-ink:#17140F;
-    --line: rgba(236,230,216,.16);
-    --line-strong: rgba(236,230,216,.34);
-    --reg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><path d='M8 0V16M0 8H16' stroke='%23ECE6D8' stroke-width='0.75' opacity='0.55'/></svg>");
+    --paper:#0B0B0B;
+    --paper-alt:#161616;
+    --paper-deep:#212121;
+    --ink:#F2F2F0;
+    --muted:#9A9A96;
+    --pigment:#F2F2F0;
+    --pigment-ink:#0B0B0B;
+    --line: rgba(242,242,240,.14);
+    --line-strong: rgba(242,242,240,.30);
+    --reg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><path d='M8 0V16M0 8H16' stroke='%23F2F2F0' stroke-width='0.75' opacity='0.55'/></svg>");
   }
 }
 :root[data-theme="dark"]{
-  --paper:#131110;
-  --paper-alt:#1C1916;
-  --paper-deep:#262119;
-  --ink:#ECE6D8;
-  --muted:#A79C87;
-  --pigment:#D2653F;
-  --pigment-ink:#17140F;
-  --line: rgba(236,230,216,.16);
-  --line-strong: rgba(236,230,216,.34);
-  --reg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><path d='M8 0V16M0 8H16' stroke='%23ECE6D8' stroke-width='0.75' opacity='0.55'/></svg>");
+  --paper:#0B0B0B;
+  --paper-alt:#161616;
+  --paper-deep:#212121;
+  --ink:#F2F2F0;
+  --muted:#9A9A96;
+  --pigment:#F2F2F0;
+  --pigment-ink:#0B0B0B;
+  --line: rgba(242,242,240,.14);
+  --line-strong: rgba(242,242,240,.30);
+  --reg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><path d='M8 0V16M0 8H16' stroke='%23F2F2F0' stroke-width='0.75' opacity='0.55'/></svg>");
 }
 
 *{box-sizing:border-box;}
@@ -164,7 +164,7 @@ main{display:block;}
 .eyebrow{
   font-family:'IBM Plex Mono',monospace;
   font-size:.76rem;
-  color:var(--pigment);
+  color:var(--muted);
   letter-spacing:.04em;
 }
 .text-link{
@@ -180,7 +180,7 @@ main{display:block;}
 }
 .btn:hover{background:var(--ink);color:var(--paper);}
 .btn-primary{background:var(--pigment);border-color:var(--pigment);color:var(--pigment-ink);}
-.btn-primary:hover{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.btn-primary:hover{background:var(--paper);border-color:var(--ink);color:var(--ink);}
 
 /* ---------- registration-mark plates (placeholder artwork) ---------- */
 .plate{
@@ -213,8 +213,8 @@ main{display:block;}
 }
 .ring-section-head .eyebrow{display:block;margin-bottom:16px;}
 .ring-section-head h1{
-  font-size:clamp(1.9rem, 3.4vw, 2.6rem);
-  line-height:1.12;
+  font-size:clamp(1.5rem, 2.4vw, 1.9rem);
+  line-height:1.16;
   letter-spacing:-.01em;
 }
 .ring-section-head p{margin-top:16px;color:var(--muted);}
@@ -233,7 +233,7 @@ main{display:block;}
   perspective:1000px;
 }
 .ring-stage--artists{
-  height:clamp(320px, 36vw, 440px);
+  height:clamp(360px, 42vw, 500px);
 }
 .ring-stage--artworks{
   height:clamp(240px, 27vw, 350px);
@@ -268,7 +268,7 @@ main{display:block;}
   transform:translate(-50%,-50%) rotateY(calc(var(--i) * (360deg / var(--count)))) translateZ(var(--radius));
   backface-visibility:hidden;
 }
-.ring-stage--artists .ring-item{--w:clamp(170px, 22vw, 260px);}
+.ring-stage--artists .ring-item{--w:clamp(200px, 26vw, 310px);}
 .ring-stage--artworks .ring-item{--w:clamp(120px, 14vw, 190px);}
 .ring-item .plate{width:100%;aspect-ratio:3/4;}
 
