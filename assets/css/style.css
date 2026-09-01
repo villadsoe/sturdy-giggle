@@ -161,15 +161,6 @@ p{margin:0;}
 main{display:block;}
 .section{padding:76px 0;}
 .section-bg-alt{background:var(--paper-alt);}
-.section-head{
-  display:grid;grid-template-columns:1fr auto;align-items:end;
-  gap:20px;margin-bottom:44px;
-  border-bottom:1px solid var(--line);
-  padding-bottom:18px;
-}
-.section-head .eyebrow{grid-column:1;}
-.section-head h2{grid-column:1;font-size:1.5rem;margin-top:6px;}
-.section-head p{grid-column:1;color:var(--muted);margin-top:8px;max-width:46ch;}
 .eyebrow{
   font-family:'IBM Plex Mono',monospace;
   font-size:.76rem;
@@ -180,7 +171,7 @@ main{display:block;}
   font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;
   border-bottom:1px solid var(--ink);padding-bottom:2px;
 }
-.grid-cta{margin-top:40px;}
+.grid-cta{margin-top:40px;text-align:center;}
 .btn{
   display:inline-block;
   font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;font-weight:500;
@@ -215,65 +206,80 @@ main{display:block;}
   font-size:2.6rem;
 }
 
-/* ---------- hero ---------- */
-.hero .container{
-  display:grid;grid-template-columns:1.15fr .85fr;gap:56px;
-  align-items:center;
-  padding-top:56px;padding-bottom:56px;
+/* ---------- rotating ring carousel ---------- */
+.ring-section{padding:56px 0 64px;}
+.ring-section-head{
+  max-width:640px;margin:0 auto;text-align:center;
 }
-.hero-image{aspect-ratio:4/5;}
-.hero-image .stamp{
-  position:absolute;left:16px;bottom:16px;
-  background:var(--paper);border:1px solid var(--ink);
-  padding:6px 10px;
-  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.03em;
-}
-.hero-text .eyebrow{display:block;margin-bottom:16px;}
-.hero-text h1{
-  font-size:clamp(1.9rem, 2.6vw, 2.5rem);
+.ring-section-head .eyebrow{display:block;margin-bottom:16px;}
+.ring-section-head h1{
+  font-size:clamp(1.9rem, 3.4vw, 2.6rem);
   line-height:1.12;
   letter-spacing:-.01em;
 }
-.hero-text p{margin-top:18px;color:var(--muted);max-width:38ch;}
-.hero-cta{margin-top:30px;}
+.ring-section-head p{margin-top:16px;color:var(--muted);}
+.ring-section-head .btn{margin-top:28px;}
 
-/* ---------- artists ---------- */
-.artist-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line);border-left:1px solid var(--line);
+.ring-divider{
+  display:flex;justify-content:center;
+  padding:22px 0;
+  border-top:1px solid var(--line);
 }
-.artist-card{
-  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:18px;
-  display:flex;flex-direction:column;gap:14px;
-  transition:background-color .18s ease;
-}
-.artist-card:hover{background:var(--paper-alt);}
-.artist-card .plate{aspect-ratio:3/4;}
-.artist-index{font-family:'IBM Plex Mono',monospace;font-size:.76rem;color:var(--pigment);}
-.artist-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;}
-.artist-genre{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:.72rem;letter-spacing:.06em;color:var(--muted);}
 
-/* ---------- artworks ---------- */
-.artwork-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  grid-auto-rows:130px;
-  gap:2px;
-  background:var(--line);
-  border:1px solid var(--line);
+.ring-stage{
+  position:relative;
+  max-width:1400px;margin:44px auto 0;
+  overflow:hidden;
+  perspective:1000px;
 }
-.artwork-card{background:var(--paper);display:flex;flex-direction:column;}
-.artwork-card .plate{flex:1;}
-.artwork-card.tall{grid-row:span 3;}
-.artwork-card.wide{grid-column:span 2;grid-row:span 2;}
-.artwork-card.square{grid-row:span 2;}
-.artwork-meta{
-  display:flex;justify-content:space-between;align-items:baseline;gap:10px;
-  padding:12px 4px 0;
+.ring-stage--artists{
+  height:clamp(320px, 36vw, 440px);
 }
-.artwork-title{font-family:'Fraunces',serif;font-style:italic;font-size:.92rem;}
-.artwork-price{font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--muted);white-space:nowrap;}
+.ring-stage--artworks{
+  height:clamp(240px, 27vw, 350px);
+  margin-top:0;
+}
+.ring{
+  position:absolute;inset:0;
+  transform-style:preserve-3d;
+  animation:ring-spin 34s linear infinite;
+}
+.ring--reverse{animation-name:ring-spin-reverse;animation-duration:44s;}
+.ring-stage:hover .ring{animation-play-state:paused;}
+
+@media (prefers-reduced-motion: reduce){
+  .ring{animation:none;}
+}
+
+@keyframes ring-spin{
+  from{transform:rotateY(0deg);}
+  to{transform:rotateY(360deg);}
+}
+@keyframes ring-spin-reverse{
+  from{transform:rotateY(0deg);}
+  to{transform:rotateY(-360deg);}
+}
+
+.ring-item{
+  position:absolute;top:50%;left:50%;
+  width:var(--w);
+  --radius: calc(var(--w) / (2 * tan(180deg / var(--count))) * 0.96);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  transform:translate(-50%,-50%) rotateY(calc(var(--i) * (360deg / var(--count)))) translateZ(var(--radius));
+  backface-visibility:hidden;
+}
+.ring-stage--artists .ring-item{--w:clamp(170px, 22vw, 260px);}
+.ring-stage--artworks .ring-item{--w:clamp(120px, 14vw, 190px);}
+.ring-item .plate{width:100%;aspect-ratio:3/4;}
+
+.ring-caption{
+  font-family:'Fraunces',serif;font-weight:600;font-size:.95rem;
+  color:var(--ink);text-align:center;white-space:nowrap;
+}
+.ring-caption--mono{
+  font-family:'IBM Plex Mono',monospace;font-size:.85rem;
+  color:var(--muted);letter-spacing:.04em;
+}
 
 /* ---------- sell teaser ---------- */
 .about-grid{
@@ -314,21 +320,13 @@ main{display:block;}
   .main-nav{display:none;}
   .label-desktop span{display:none;}
   .hamburger{display:flex;}
-  .hero .container{grid-template-columns:1fr;}
-  .hero-image{order:-1;aspect-ratio:16/10;}
-  .artist-grid{grid-template-columns:repeat(2,1fr);}
-  .artwork-grid{grid-template-columns:repeat(2,1fr);}
-  .artwork-card.wide{grid-column:span 2;}
   .about-grid{grid-template-columns:1fr;}
   .footer-top{grid-template-columns:1fr 1fr;}
 }
 @media (max-width:560px){
   .container{padding:0 18px;}
   .header-inner{padding:16px 18px;}
-  .artist-grid{grid-template-columns:repeat(2,1fr);}
-  .artwork-grid{grid-template-columns:1fr;grid-auto-rows:220px;}
-  .artwork-card.tall,.artwork-card.wide,.artwork-card.square{grid-column:span 1;grid-row:span 1;}
   .footer-top{grid-template-columns:1fr;padding:44px 0 30px;}
   .section{padding:56px 0;}
-  .section-head{grid-template-columns:1fr;}
+  .ring-section{padding:44px 0 52px;}
 }
