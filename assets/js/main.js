@@ -32,6 +32,13 @@
     if(e.key === 'Escape') searchOverlay.classList.remove('is-open');
   });
 
+  document.querySelectorAll('.ring-stage').forEach(function(stage){
+    var ring = stage.querySelector('.ring');
+    stage.addEventListener('click', function(){
+      ring.classList.toggle('is-paused');
+    });
+  });
+
   document.querySelectorAll('[data-demo-form]').forEach(function(form){
     form.addEventListener('submit', function(e){
       e.preventDefault();

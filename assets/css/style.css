@@ -53,14 +53,18 @@ p{margin:0;}
 .site-header{
   position:sticky;top:0;z-index:40;
   background:var(--paper);
-  border-bottom:1px solid var(--line);
 }
-.site-header.is-scrolled{border-bottom-color:var(--line-strong);}
 .header-inner{
   display:flex;align-items:center;justify-content:space-between;
   padding:18px 28px;
   max-width:1180px;margin:0 auto;
   gap:24px;
+  border-bottom:1px solid var(--line);
+}
+.site-header.is-scrolled .header-inner{border-bottom-color:var(--line-strong);}
+.header-logo-row{
+  padding:14px 28px;
+  max-width:1180px;margin:0 auto;
 }
 .logo{
   font-family:'Oswald',sans-serif;
@@ -153,8 +157,6 @@ main{display:block;}
   border:1px solid var(--ink);
 }
 .btn:hover{background:var(--ink);color:var(--paper);}
-.btn-primary{background:var(--pigment);border-color:var(--pigment);color:var(--pigment-ink);}
-.btn-primary:hover{background:var(--paper);border-color:var(--ink);color:var(--ink);}
 
 /* ---------- registration-mark plates (placeholder artwork) ---------- */
 .plate{
@@ -191,8 +193,6 @@ main{display:block;}
   line-height:1.16;
   letter-spacing:-.01em;
 }
-.ring-section-head p{margin-top:16px;color:var(--muted);}
-.ring-section-head .btn{margin-top:28px;}
 
 .ring-divider{
   display:flex;justify-content:center;
@@ -205,12 +205,13 @@ main{display:block;}
   max-width:1400px;margin:44px auto 0;
   overflow:hidden;
   perspective:1000px;
+  cursor:pointer;
 }
 .ring-stage--artists{
-  height:clamp(360px, 42vw, 500px);
+  height:clamp(420px, 48vw, 560px);
 }
 .ring-stage--artworks{
-  height:clamp(240px, 27vw, 350px);
+  height:clamp(280px, 32vw, 400px);
   margin-top:0;
 }
 .ring{
@@ -219,7 +220,7 @@ main{display:block;}
   animation:ring-spin 34s linear infinite;
 }
 .ring--reverse{animation-name:ring-spin-reverse;animation-duration:44s;}
-.ring-stage:hover .ring{animation-play-state:paused;}
+.ring.is-paused{animation-play-state:paused;}
 
 @media (prefers-reduced-motion: reduce){
   .ring{animation:none;}
@@ -242,8 +243,8 @@ main{display:block;}
   transform:translate(-50%,-50%) rotateY(calc(var(--i) * (360deg / var(--count)))) translateZ(var(--radius));
   backface-visibility:hidden;
 }
-.ring-stage--artists .ring-item{--w:clamp(200px, 26vw, 310px);}
-.ring-stage--artworks .ring-item{--w:clamp(120px, 14vw, 190px);}
+.ring-stage--artists .ring-item{--w:clamp(230px, 30vw, 350px);}
+.ring-stage--artworks .ring-item{--w:clamp(140px, 17vw, 220px);}
 .ring-item .plate{width:100%;aspect-ratio:3/4;}
 
 .ring-caption{
@@ -300,6 +301,7 @@ main{display:block;}
 @media (max-width:560px){
   .container{padding:0 18px;}
   .header-inner{padding:16px 18px;}
+  .header-logo-row{padding:12px 18px;}
   .footer-top{grid-template-columns:1fr;padding:44px 0 30px;}
   .section{padding:56px 0;}
   .ring-section{padding:44px 0 52px;}
